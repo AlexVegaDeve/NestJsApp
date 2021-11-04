@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './event-item.module.css'; // importing css modules
 import Button from '../ui/button';
+import DateIcon from '../icons/date-icon';
+import AddressIcon from '../icons/address-icon';
+import ArrowRightIcon from '../icons/arrow-right-icon';
 
 function EventItem(props) {
     const { title, image, date, location, id} = props
@@ -23,13 +26,19 @@ function EventItem(props) {
                     <h2>{title}</h2>
                 </div>
                 <div className={styles.date}> 
+                    <DateIcon />
                     <time>{humanReadableDate}</time>
                 </div>
-                <div className={styles.address}> 
+                <div className={styles.address}>
+                    <AddressIcon /> 
                     <address>{formattedAddress}</address>
                 </div>
                 <div className={styles.actions}>
-                    <Button link={exploreLink} children={'Explore Event'}/>
+                    
+                    <Button link={exploreLink}> 
+                        <span> Explore Event</span>
+                        <span className={styles.icon}> <ArrowRightIcon /> </span>
+                    </Button>
                 </div>
             </div>
         </li>
